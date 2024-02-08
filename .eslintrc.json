@@ -4,31 +4,38 @@
         "es2021": true
     },
     "extends": [
-        "standard-with-typescript",
+        "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended", // 기존(default) "airbnb", 
-        "airbnb/hooks",//추가
-        "airbnb-typescript", //추가
-        "prettier", // 추가
-        "plugin:prettier/recommended" // 추가
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
     ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
         "ecmaVersion": "latest",
-        "sourceType": "module",
-        "project" : "./tsconfig.json" //추가
+        "sourceType": "module"
     },
     "plugins": [
-        "react"
+      "react",
+      "react-hooks",
+      "@typescript-eslint",
+      "prettier"	
     ],
     "rules": {
-        "prettier/prettier": [
-            "error", 
-                {
-                 "endOfLine": "auto" ,
-                 "useTabs": false
-                }
-            ], 
-        "@typescript-eslint/explicit-function-return-type": "off", //추가
-        "@typescript-eslint/non-nullable-type-assertion-style": "off" //추가
+      "react/react-in-jsx-scope": "off",
+      "spaced-comment": "error",
+      "quotes": ["error", "single"],
+      "no-duplicate-imports": "error"
+      },
+    "settings": { 
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".tsx", ".js"] 
+      }, 
+      "import/resolver": { 
+        "typescript": "./tsconfig.json" 
+      }
     }
+  
 }
