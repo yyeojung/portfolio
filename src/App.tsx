@@ -34,7 +34,7 @@ function App() {
         <Button onClick={darkMode}>dark</Button>
         <Button onClick={lightMode}>light</Button>
         <a href='/'>홈</a>
-        <a href='/about'>어바웃</a>
+        <a href='/about'>어바dd웃</a>
       </Relative>
       <div className='App'>
         <Routes>
