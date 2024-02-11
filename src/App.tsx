@@ -5,11 +5,14 @@ import Home from 'page/Home';
 import About from 'page/About';
 import styled, { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './style/theme';
+// import { useSelector } from 'react-redux';
+// import { RootState } from 'store/store';
 
 // !!!!삭제하기
 const Relative = styled.div`
   position: absolute;
   right: 0;
+  z-index: 100;
   & a {
     color: red;
   }
@@ -20,6 +23,10 @@ const Button = styled.button`
 `;
 
 function App() {
+  // const isLightTheme = useSelector(
+  //   (state: RootState) => state.thememode.isLightTheme
+  // );
+  // !!!! 테마 삭제
   const [theme, setTheme] = useState(true);
 
   const lightMode = () => {
