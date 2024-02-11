@@ -44,7 +44,7 @@ function App() {
         <a href='/about'>어바dd웃</a>
       </Relative>
       <div className='App'>
-        <Router basename='/portfolio'>
+        <Router basename={process.env.PUBLIC_URL}>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
