@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './page/Home';
 import About from './page/About';
@@ -44,12 +44,10 @@ function App() {
         <a href='/about'>어바dd웃</a>
       </Relative>
       <div className='App'>
-        <Router>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-          </Routes>
-        </Router>
+        <Routes>
+          <Route path='portfolio/' element={<Home />} />
+          <Route path='portfolio/about' element={<About />} />
+        </Routes>
       </div>
     </ThemeProvider>
   );
