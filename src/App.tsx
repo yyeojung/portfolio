@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from 'page/Home';
-import About from 'page/About';
+import Home from './page/Home';
+import About from './page/About';
 import styled, { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './style/theme';
 // import { useSelector } from 'react-redux';
