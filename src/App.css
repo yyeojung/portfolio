@@ -190,3 +190,8 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
+.App {
+  height: 100vh;
+  min-height: 100vh;
+}

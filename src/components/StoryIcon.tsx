@@ -1,11 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
 interface StoryBoxProps {
   width?: string;
-  height?: string;
   className?: string;
-  imgUrl?: string;
+  title?: string;
+  src: string;
+  onClick?: string;
 }
 const spin = keyframes`
   0% {
@@ -15,9 +17,18 @@ const spin = keyframes`
     transform: rotate(360deg);
   }
 `;
+const StoryWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & p {
+    margin-top: 1rem;
+    font-size: 2.4rem;
+  }
+`;
 const StoryBox = styled.div<StoryBoxProps>`
   width: ${(props) => props.width || '20rem'};
-  height: ${(props) => props.height || '20rem'};
+  height: ${(props) => props.width || '20rem'};
   position: relative;
   border-radius: 50%;
   border: 0.1rem solid ${(props) => props.theme.storyIcon.storyBorder};
@@ -69,6 +80,10 @@ const StoryBox = styled.div<StoryBoxProps>`
       width: calc(100% - 2rem);
       height: calc(100% - 2rem);
     }
+    .img_box {
+      width: calc(100% - 1rem);
+      height: calc(100% - 1rem);
+    }
   }
 
   &.menu {
@@ -81,23 +96,37 @@ const StoryBox = styled.div<StoryBoxProps>`
     }
   }
 `;
-
+const Text = styled.p`
+  color: ${(props) => props.theme.mainColor};
+`;
 export default function StoryIcon({
   width,
-  height,
   className,
-  imgUrl
+  src,
+  title,
+  onClick
 }: StoryBoxProps) {
+  const navigate = useNavigate();
+  const NavigatePage = () => {
+    if (onClick) {
+      navigate(onClick);
+    }
+  };
   return (
     <>
-      <StoryBox width={width} height={height} className={className}>
-        <div className='story_bg'></div>
-        <div className='inner_circle'>
-          <div className='img_box'>
-            <img src={imgUrl} alt='story icon' />
-          </div>
+      <StoryWrap>
+        <div className='linkArea' onClick={NavigatePage}>
+          <StoryBox width={width} className={className} src={src}>
+            <div className='story_bg'></div>
+            <div className='inner_circle'>
+              <div className='img_box'>
+                <img src={src} alt='story icon' />
+              </div>
+            </div>
+          </StoryBox>
         </div>
-      </StoryBox>
+        <Text>{title}</Text>
+      </StoryWrap>
     </>
   );
 }

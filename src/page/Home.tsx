@@ -86,12 +86,7 @@ export default function Home() {
         <div className='guide'>
           <Header />
           <Contents>
-            <StoryIcon
-              width='22rem'
-              height='22rem'
-              className='spin'
-              imgUrl={propfileImg}
-            />
+            <StoryIcon width='22rem' className='spin' src={propfileImg} />
             <Clock></Clock>
           </Contents>
           <Introduce>
@@ -124,37 +119,36 @@ export default function Home() {
           <StoryWrap>
             <StoryIcon
               width='18rem'
-              height='18rem'
               className='menu'
-              imgUrl={iconHome}
+              src={iconHome}
+              title='home🏠'
+              onClick='/'
             />
             <StoryIcon
               width='18rem'
-              height='18rem'
               className='menu'
-              imgUrl={iconAbout}
+              src={iconAbout}
+              title='about😊'
+              onClick='/about'
             />
             <StoryIcon
               width='18rem'
-              height='18rem'
               className='menu'
-              imgUrl={iconProject}
+              src={iconProject}
+              title='project👩‍💻️'
+              onClick='/project'
             />
             <StoryIcon
               width='18rem'
-              height='18rem'
               className='menu'
-              imgUrl={iconContact}
+              src={iconContact}
+              title='contact📞'
+              onClick='/contact'
             />
           </StoryWrap>
         </div>
 
-        {isOpen && (
-          <div>
-            {renderModal()}
-            <button onClick={handleCloseModal}>close</button>
-          </div>
-        )}
+        {isOpen && <div>{renderModal()}</div>}
       </HomeWrap>
     </>
   );

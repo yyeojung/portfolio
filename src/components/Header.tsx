@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-const ListStyle = css`
+export const ListStyle = css`
   position: absolute;
   transition: all 0.3s;
   top: 100%;
@@ -123,7 +124,7 @@ export default function Header() {
     setSelectOpen(false);
   };
 
-  // 영역 밖 토글 닫힘
+  // 헤더 밖 토글 닫힘
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (clickRef.current && !clickRef.current.contains(e.target as Node)) {
@@ -156,10 +157,18 @@ export default function Header() {
             <span></span>
           </button>
           <ul className='menu_list'>
-            <li>🏠 home </li>
-            <li>😊 profile </li>
-            <li>👩‍💻️ project </li>
-            <li>📞 contact </li>
+            <li>
+              <Link to='/'>🏠 home</Link>
+            </li>
+            <li>
+              <Link to='/about'>😊 about</Link>
+            </li>
+            <li>
+              <Link to='/project'>👩‍💻️ project</Link>
+            </li>
+            <li>
+              <Link to='/contact'>📞 contact</Link>
+            </li>
           </ul>
         </Menu>
       </Headers>

@@ -5,6 +5,8 @@ import Home from './page/Home';
 import About from './page/About';
 import styled, { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './style/theme';
+import Project from 'page/Project';
+import Contact from 'page/Contact';
 // import { useSelector } from 'react-redux';
 // import { RootState } from 'store/store';
 
@@ -46,6 +48,8 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
+            <Route path='/project' element={<Project />} />
+            <Route path='/contact' element={<Contact />} />
           </Routes>
         </Router>
       </div>

@@ -15,7 +15,7 @@ const Modal = styled.div`
   z-index: 20;
 `;
 const ModalBack = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   background: rgba(0, 0, 0, 0.3);
 `;
 const ModalWrap = styled.div`
