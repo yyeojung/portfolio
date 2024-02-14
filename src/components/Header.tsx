@@ -24,9 +24,16 @@ export const ListStyle = css`
   & li ~ li {
     margin-top: 1rem;
   }
+  @media (${(props) => props.theme.size.mobile}) {
+    & li {
+      font-size: 1.6rem;
+      height: 2.4rem;
+    }
+  }
 `;
 
 const Headers = styled.header`
+  width: 120rem;
   height: 8rem;
   background: ${(props) => props.theme.mainBg};
   color: ${(props) => props.theme.mainColor};
@@ -34,8 +41,18 @@ const Headers = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
   z-index: 10;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+  @media (${(props) => props.theme.size.mobile}) {
+    height: 5.6rem;
+  }
 `;
 // 타이틀 스타일
 const Title = styled.div`
@@ -45,6 +62,9 @@ const Title = styled.div`
   & h1 {
     font-weight: 700;
     font-size: 4.8rem;
+    @media (${(props) => props.theme.size.mobile}) {
+      font-size: 2.4rem;
+    }
   }
   & .dropdown {
     transition: all 0.3s;
@@ -53,6 +73,11 @@ const Title = styled.div`
     background: url(${(props) => props.theme.dropdown.icon}) center center/ 100%
       no-repeat;
     margin-left: 1rem;
+
+    @media (${(props) => props.theme.size.mobile}) {
+      width: 2rem;
+      height: 2rem;
+    }
   }
   & .my_list {
     ${ListStyle}
@@ -69,6 +94,9 @@ const Title = styled.div`
       opacity: 1;
       height: 18.4rem;
       padding: 2rem 0rem;
+      @media (${(props) => props.theme.size.mobile}) {
+        height: 13.2rem;
+      }
     }
   }
 `;
@@ -85,6 +113,16 @@ const Menu = styled.div`
     span ~ span {
       margin-top: 1rem;
     }
+
+    @media (${(props) => props.theme.size.mobile}) {
+      span {
+        width: 3rem;
+        height: 0.4rem;
+      }
+      span ~ span {
+        margin-top: 0.6rem;
+      }
+    }
   }
 
   & .menu_list {
@@ -99,12 +137,25 @@ const Menu = styled.div`
     & li:hover {
       background: rgba(226, 53, 53, 0.19);
     }
+
+    @media (${(props) => props.theme.size.mobile}) {
+      width: 14rem;
+      & li {
+        height: 2.4rem;
+      }
+    }
   }
+
   &.active {
     .menu_list {
       opacity: 1;
       height: 26.6rem;
       padding: 3rem 0rem;
+
+      @media (${(props) => props.theme.size.mobile}) {
+        height: 16.6rem;
+        padding: 2rem 0rem;
+      }
     }
   }
 `;

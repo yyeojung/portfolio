@@ -12,7 +12,7 @@ const Button = styled.button`
   color: #1cacda;
   font-weight: 700;
   box-shadow: 0 0.1rem 0.6rem 0 rgba(0, 0, 0, 0.2);
-
+  width: fit-content;
   i {
     display: inline-block;
     width: 2.4rem;
@@ -34,6 +34,14 @@ const Button = styled.button`
     );
     color: transparent;
     -webkit-background-clip: text;
+  }
+
+  @media (${(props) => props.theme.size.mobile}) {
+    font-size: 1.6rem;
+    i {
+      width: 2rem;
+      height: 2rem;
+    }
   }
 `;
 export default function LinkBtn({ title }: { title: string }) {

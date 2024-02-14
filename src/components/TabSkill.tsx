@@ -11,26 +11,40 @@ const SkillWrap = styled.div`
   color: ${(props) => props.theme.mainColor};
   padding: 6rem;
   display: flex;
+  @media (${(props) => props.theme.size.mobile}) {
+    width: 100%;
+    margin-left: 0;
+  }
 `;
 const Contents = styled.div`
-  position: absolute;
-  width: calc(100% - 24rem);
+  width: 100%;
   z-index: 1;
-  top: 16rem;
+  margin-top: 12rem;
   display: flex;
-  gap: 18rem;
+  justify-content: space-around;
 
   .link_wrap {
     position: absolute;
-    top: 11rem;
-    left: 22rem;
+    bottom: 20rem;
+    right: 8%;
+  }
+
+  .left {
+    margin-right: 4rem;
   }
 `;
 const Box = styled.div`
-  margin-top: 4rem;
+  margin-top: 2.8rem;
 
   .text_wrap {
-    margin-top: 2rem;
+    margin-top: 1.6rem;
+    max-width: 52rem;
+
+    p {
+      font-size: 1.6rem;
+      margin-top: 0.4rem;
+      line-height: 1.5;
+    }
   }
 `;
 const Tag = styled.p`
@@ -38,7 +52,7 @@ const Tag = styled.p`
   padding: 0 2rem;
   background: #000;
   border-radius: 1rem;
-  font-size: 2.4rem;
+  font-size: 2rem;
   height: 4rem;
   line-height: 4rem;
   color: #fff;
@@ -63,20 +77,33 @@ export default function TabSkill() {
               <Tag>사용 기술</Tag>
               <div className='text_wrap'>
                 <strong>html, css</strong>
-                <p>시맨틱 태그 어쩌구 저쩌구 저쩔러구....</p>
-              </div>
-              <div className='text_wrap'>
-                <strong>Javascript, Typescript</strong>
                 <p>
-                  시맨틱 태그 어쩌구 저쩌구 저태그 <br />
-                  어쩌구 저쩌구 저쩔러구.쩔러구....
+                  시맨틱 태그를 활용하고 의미에 맞는 태그들을 생각하여
+                  <br />
+                  적절하게 배치합니다.
                 </p>
               </div>
               <div className='text_wrap'>
-                <strong>React</strong>
+                <strong>JavaScript, TypeScript</strong>
                 <p>
-                  시맨틱 태그 어쩌구 저쩌구 저태그 <br />
-                  어쩌구 저쩌구 저쩔러구.쩔러구....
+                  기본적인 JavaScript를 학습하여 웹페이지에서
+                  <br />
+                  동적인 기능 구현이 가능합니다.
+                </p>
+                <p>
+                  타입스크립트를 학습하여 코드의 가독성과 유지보수성을
+                  <br /> 높이기 위해 노력합니다.
+                </p>
+              </div>
+              <div className='text_wrap'>
+                <strong>React, Redux</strong>
+                <p>
+                  데이터 전달을 위한 props의 개념을 이해하고 활용할 수 있습니다.
+                </p>
+                <p>
+                  state를 효과적으로 관리하기 위해 Redux로 전역 상태관리를
+                  <br />
+                  경험해보았습니다.
                 </p>
               </div>
             </Box>

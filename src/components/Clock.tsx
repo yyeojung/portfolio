@@ -15,6 +15,16 @@ const ClockBox = styled.div`
       margin-top: 1rem;
       font-size: 2.8rem;
     }
+
+    @media (${(props) => props.theme.size.mobile}) {
+      width: 10rem;
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.6rem;
+      }
+    }
   }
 `;
 export default function Clock() {

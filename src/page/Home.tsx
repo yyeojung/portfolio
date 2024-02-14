@@ -21,15 +21,18 @@ const HomeWrap = styled.div`
   min-height: 100vh;
 
   & .guide {
-    width: 120rem;
-    margin: auto;
+    max-width: 120rem;
+    margin: 14rem auto 0;
+
+    @media (max-width: 1200px) {
+      padding: 0 1.6rem;
+    }
   }
 `;
 const Contents = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 6rem;
 `;
 
 const Introduce = styled.div`
@@ -48,12 +51,26 @@ const Introduce = styled.div`
     gap: 3rem;
     margin-top: 3rem;
   }
+  @media (${(props) => props.theme.size.mobile}) {
+    & strong {
+      font-size: 1.8rem;
+    }
+    & p {
+      font-size: 1.4rem;
+    }
+    & .btn_wrap {
+      gap: 1rem;
+    }
+  }
 `;
 
 const StoryWrap = styled.div`
   margin-top: 4rem;
   display: flex;
   gap: 6rem;
+  @media (${(props) => props.theme.size.mobile}) {
+    gap: 1rem;
+  }
 `;
 export default function Home() {
   const dispatch = useDispatch();
@@ -83,10 +100,14 @@ export default function Home() {
   return (
     <>
       <HomeWrap>
+        <Header />
         <div className='guide'>
-          <Header />
           <Contents>
-            <StoryIcon width='22rem' className='spin' src={propfileImg} />
+            <StoryIcon
+              width={['22rem', '12rem']}
+              className='spin'
+              src={propfileImg}
+            />
             <Clock></Clock>
           </Contents>
           <Introduce>
@@ -102,12 +123,12 @@ export default function Home() {
             <div className='btn_wrap'>
               <Button
                 text='My Profile'
-                width='calc((100% - 14rem)/2)'
+                width={['calc((100% - 14rem)/2)', 'calc((100% - 6rem)/2)']}
                 onClick={() => handleOpenModal('profile')}
               ></Button>
               <Button
                 text='Message'
-                width='calc((100% - 14rem)/2)'
+                width={['calc((100% - 14rem)/2)', 'calc((100% - 6rem)/2)']}
                 onClick={() => handleOpenModal('message')}
               ></Button>
               <Button
@@ -118,28 +139,28 @@ export default function Home() {
           </Introduce>
           <StoryWrap>
             <StoryIcon
-              width='18rem'
+              width={['18rem', '10rem']}
               className='menu'
               src={iconHome}
               title='home🏠'
               onClick='/'
             />
             <StoryIcon
-              width='18rem'
+              width={['18rem', '10rem']}
               className='menu'
               src={iconAbout}
               title='about😊'
               onClick='/about'
             />
             <StoryIcon
-              width='18rem'
+              width={['18rem', '10rem']}
               className='menu'
               src={iconProject}
               title='project👩‍💻️'
               onClick='/project'
             />
             <StoryIcon
-              width='18rem'
+              width={['18rem', '10rem']}
               className='menu'
               src={iconContact}
               title='contact📞'

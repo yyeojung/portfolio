@@ -1,38 +1,30 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 interface StoryBoxProps {
-  width?: string;
+  width?: [string, string];
   className?: string;
   title?: string;
   src: string;
   onClick?: string;
 }
-const spin = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`;
 const StoryWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  & p {
-    margin-top: 1rem;
-    font-size: 2.4rem;
-  }
 `;
 const StoryBox = styled.div<StoryBoxProps>`
-  width: ${(props) => props.width || '20rem'};
-  height: ${(props) => props.width || '20rem'};
+  width: ${(props) => (props.width ? props.width[0] : '20rem')};
+  height: ${(props) => (props.width ? props.width[0] : '20rem')};
   position: relative;
   border-radius: 50%;
   border: 0.1rem solid ${(props) => props.theme.storyIcon.storyBorder};
 
+  @media (${(props) => props.theme.size.mobile}) {
+    width: ${(props) => (props.width ? props.width[1] : '10rem')};
+    height: ${(props) => (props.width ? props.width[1] : '10rem')};
+  }
   & .inner_circle {
     background: ${(props) => props.theme.mainBg};
     width: 100%;
@@ -59,6 +51,10 @@ const StoryBox = styled.div<StoryBoxProps>`
       img {
         height: 85%;
       }
+      @media (${(props) => props.theme.size.mobile}) {
+        width: calc(100% - 1rem);
+        height: calc(100% - 1rem);
+      }
     }
   }
 
@@ -74,11 +70,10 @@ const StoryBox = styled.div<StoryBoxProps>`
         #ff00f5 50%,
         #ee022c 100%
       );
-      animation: ${spin} 2s linear infinite;
     }
     .inner_circle {
-      width: calc(100% - 2rem);
-      height: calc(100% - 2rem);
+      width: calc(100% - 1rem);
+      height: calc(100% - 1rem);
     }
     .img_box {
       width: calc(100% - 1rem);
@@ -98,6 +93,11 @@ const StoryBox = styled.div<StoryBoxProps>`
 `;
 const Text = styled.p`
   color: ${(props) => props.theme.mainColor};
+  margin-top: 1rem;
+  font-size: 2.4rem;
+  @media (${(props) => props.theme.size.mobile}) {
+    font-size: 1.4rem;
+  }
 `;
 export default function StoryIcon({
   width,

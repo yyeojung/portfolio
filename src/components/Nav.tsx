@@ -22,28 +22,28 @@ export default function Nav({ currentPage }: { currentPage: string }) {
     <SideNav>
       <StoryIcon
         src={iconHome}
-        width='14rem'
+        width={['14rem', '0']}
         title='home🏠'
         className='menu'
         onClick='/'
       ></StoryIcon>
       <StoryIcon
         src={iconAbout}
-        width='14rem'
+        width={['14rem', '0']}
         title='about😊'
         onClick='/about'
         className={currentPage === 'about' ? 'spin menu' : 'menu'}
       ></StoryIcon>
       <StoryIcon
         src={iconProject}
-        width='14rem'
+        width={['14rem', '0']}
         title='project👩‍💻️'
         onClick='/project'
         className={currentPage === 'project' ? 'spin menu' : 'menu'}
       ></StoryIcon>
       <StoryIcon
         src={iconContact}
-        width='14rem'
+        width={['14rem', '0']}
         title='contact📞'
         onClick='/contact'
         className={currentPage === 'contact' ? 'spin menu' : 'menu'}

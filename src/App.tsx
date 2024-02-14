@@ -4,7 +4,7 @@ import './App.css';
 import Home from './page/Home';
 import About from './page/About';
 import styled, { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from './style/theme';
+import { darkTheme, lightTheme, size } from './style/theme';
 import Project from 'page/Project';
 import Contact from 'page/Contact';
 // import { useSelector } from 'react-redux';
@@ -37,8 +37,13 @@ function App() {
   const darkMode = () => {
     setTheme(false);
   };
+  const themeAndMobile = {
+    ...(theme ? lightTheme : darkTheme),
+    size
+  };
+
   return (
-    <ThemeProvider theme={theme ? lightTheme : darkTheme}>
+    <ThemeProvider theme={themeAndMobile}>
       <Relative>
         <Button onClick={darkMode}>dark</Button>
         <Button onClick={lightMode}>light</Button>

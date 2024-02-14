@@ -41,6 +41,21 @@ const User = styled.div`
     padding-top: 1rem;
     margin-left: 1rem;
   }
+  @media (${(props) => props.theme.size.mobile}) {
+    img {
+      width: 4rem;
+      height: 4rem;
+    }
+    p {
+      margin-left: 1.6rem;
+      font-size: 2rem;
+    }
+
+    span {
+      font-size: 1.4rem;
+      padding-top: 0.8rem;
+    }
+  }
 `;
 
 const TabMenu = styled.div`
@@ -56,6 +71,13 @@ const TabMenu = styled.div`
     rgba(0, 0, 0, 0.3) 50%,
     rgba(0, 0, 0, 0) 100%
   );
+
+  @media (${(props) => props.theme.size.mobile}) {
+    width: 100%;
+    left: 0;
+    padding: 2.8rem 1.6rem;
+  }
+
   ul {
     display: flex;
     gap: 4rem;
@@ -72,6 +94,13 @@ const TabMenu = styled.div`
     }
     li.active {
       background: #fff;
+    }
+    @media (${(props) => props.theme.size.mobile}) {
+      gap: 2rem;
+      li {
+        height: 2rem;
+        font-size: 1.6rem;
+      }
     }
   }
 `;

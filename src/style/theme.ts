@@ -42,6 +42,7 @@ export const lightTheme = {
   },
   about: {
     blur: 'rgba(255,255,255,0.5)',
+    descColor: '#272e3f',
     skillBg: 'linear-gradient(to bottom, #d3d3d3 0%, #e6e6fa 100%)'
   },
   project: {
@@ -53,6 +54,7 @@ export const lightTheme = {
   contact: {
     chatBg: '#3791F0',
     chatBgHover: '#4324C0',
+    userBg: '#aaa',
     dmAlert: '#666',
     placeholder: '#666'
   }
@@ -84,6 +86,7 @@ export const darkTheme = {
   },
   about: {
     blur: 'rgba(0,0,0,0.5)',
+    descColor: '#F0F1F2',
     skillBg: 'linear-gradient(to bottom, #333 0%, #0f4c81 100%)'
   },
   project: {
@@ -95,13 +98,18 @@ export const darkTheme = {
   contact: {
     chatBg: '#4324C0',
     chatBgHover: '#3791F0',
+    userBg: '#666',
     dmAlert: '#888',
     placeholder: '#A7AFB7'
   }
 };
+export const size = {
+  mobile: '(max-width: 1024px)'
+};
 export const theme = {
   lightTheme,
-  darkTheme
+  darkTheme,
+  size
 };
 
 export default theme;

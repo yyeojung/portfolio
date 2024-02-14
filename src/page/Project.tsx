@@ -37,7 +37,7 @@ const PostWrap = styled.div`
     width: calc((100% - 8rem) / 3);
   }
 
-  @media (max-width: 1024px) {
+  @media (${(props) => props.theme.size.mobile}) {
     .post {
       width: calc(50% - 2rem);
     }

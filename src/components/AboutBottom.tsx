@@ -6,7 +6,7 @@ import like3 from '../image/like3.jpg';
 import { ListStyle } from './Header';
 
 const Bottom = styled.div`
-  height: 12rem;
+  height: 10rem;
   width: calc(100% - 24rem);
   background: #000;
   position: absolute;
@@ -24,7 +24,15 @@ const Bottom = styled.div`
     width: 30rem;
     height: 30rem;
   }
+  @media (${(props) => props.theme.size.mobile}) {
+    width: 100%;
+    padding: 0 1.6rem;
+    .like_wrap {
+      width: 20rem;
+    }
+  }
 `;
+
 const Like = styled.div`
   .img_box {
     position: relative;
@@ -43,7 +51,25 @@ const Like = styled.div`
       left: 8rem;
     }
   }
+
+  @media (${(props) => props.theme.size.mobile}) {
+    .img_box {
+      width: 12rem;
+      height: 6rem;
+      img {
+        width: 6rem;
+        height: 6rem;
+      }
+      img:nth-child(2) {
+        left: 3rem;
+      }
+      img:nth-child(3) {
+        left: 6rem;
+      }
+    }
+  }
 `;
+
 const More = styled.div`
   .more_btn {
     display: flex;
@@ -54,14 +80,28 @@ const More = styled.div`
     height: 6rem;
     span {
       display: block;
-      width: 0.8rem;
-      height: 0.8rem;
+      width: 0.6rem;
+      height: 0.6rem;
       background: #fff;
       border-radius: 50%;
+    }
+    @media (${(props) => props.theme.size.mobile}) {
+      width: 4rem;
+      height: 4rem;
+      gap: 0.8rem;
+      span {
+        width: 0.4rem;
+        height: 0.4rem;
+      }
     }
   }
   p {
     color: #fff;
+    font-size: 1.4rem;
+    text-align: center;
+    @media (${(props) => props.theme.size.mobile}) {
+      font-size: 1.2rem;
+    }
   }
 `;
 
@@ -94,6 +134,16 @@ const List = styled.ul`
 
   &.active {
     opacity: 1;
+  }
+
+  @media (${(props) => props.theme.size.mobile}) {
+    width: 12rem;
+    right: 1.6rem;
+    li {
+      font-size: 1.4rem;
+      height: 3.2rem;
+      line-height: 3.2rem;
+    }
   }
 `;
 export default function AboutBottom({ children }: { children: ReactNode }) {
