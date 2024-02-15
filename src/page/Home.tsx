@@ -22,10 +22,11 @@ const HomeWrap = styled.div`
 
   & .guide {
     max-width: 120rem;
-    margin: 14rem auto 0;
+    margin: auto;
+    padding-top: 12rem;
 
     @media (max-width: 1200px) {
-      padding: 14rem 1.6rem 0;
+      padding: 10rem 1.6rem 0;
       margin: 0;
     }
   }
