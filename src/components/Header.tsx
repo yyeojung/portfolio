@@ -19,7 +19,12 @@ export const ListStyle = css`
     font-size: 2.8rem;
     height: 3.8rem;
     padding: 0rem 3rem;
-    cursor: pointer;
+
+    a {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
   }
   & li ~ li {
     margin-top: 1rem;
