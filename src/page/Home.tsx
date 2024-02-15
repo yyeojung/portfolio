@@ -25,7 +25,8 @@ const HomeWrap = styled.div`
     margin: 14rem auto 0;
 
     @media (max-width: 1200px) {
-      padding: 0 1.6rem;
+      padding: 14rem 1.6rem 0;
+      margin: 0;
     }
   }
 `;

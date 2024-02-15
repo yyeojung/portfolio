@@ -11,6 +11,7 @@ const SkillWrap = styled.div`
   color: ${(props) => props.theme.mainColor};
   padding: 6rem;
   display: flex;
+
   @media (${(props) => props.theme.size.mobile}) {
     width: 100%;
     margin-left: 0;
@@ -76,11 +77,10 @@ export default function TabSkill() {
             <Box>
               <Tag>사용 기술</Tag>
               <div className='text_wrap'>
-                <strong>html, css</strong>
+                <strong>html, Css</strong>
                 <p>
-                  시맨틱 태그를 활용하고 의미에 맞는 태그들을 생각하여
-                  <br />
-                  적절하게 배치합니다.
+                  JavaScript를 사용하지 않아도 충분히 구현 가능한
+                  <br /> Html,Css를 활용하여 UI/UX 개선하는 것에 중점을 둡니다.
                 </p>
               </div>
               <div className='text_wrap'>
@@ -127,11 +127,8 @@ export default function TabSkill() {
                 <p>2023.09 ~ 재학 중</p>
               </div>
               <div className='text_wrap'>
-                <strong>
-                  강남그린컴퓨터아카데미
-                  <br />
-                  UI/UX 반응형 웹디자인&웹퍼블리셔 과정 수료
-                </strong>
+                <strong>UI/UX 반응형 웹디자인&웹퍼블리셔 과정 수료</strong>
+                <p>강남그린컴퓨터아카데미</p>
                 <p>2022.02.28 ~ 2022.08.12</p>
               </div>
             </Box>

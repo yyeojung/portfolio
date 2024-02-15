@@ -4,12 +4,15 @@ import like1 from '../image/like1.jpg';
 import like2 from '../image/like2.jpg';
 import like3 from '../image/like3.jpg';
 import { ListStyle } from './Header';
+import { useMediaQuery } from '@react-hook/media-query';
+import { Link } from 'react-router-dom';
 
 const Bottom = styled.div`
   height: 10rem;
   width: calc(100% - 24rem);
   background: #000;
   position: absolute;
+  z-index: 1;
   bottom: 0;
   right: 0;
   display: flex;
@@ -19,6 +22,7 @@ const Bottom = styled.div`
 
   .like_wrap {
     position: absolute;
+    z-index: 2;
     bottom: 0.5rem;
     left: 0;
     width: 30rem;
@@ -110,6 +114,7 @@ const List = styled.ul`
   color: ${(props) => props.theme.mainColor};
   width: 18rem;
   right: 4rem;
+  display: none;
   top: auto;
   bottom: calc(100% + 2rem);
   height: auto;
@@ -123,6 +128,10 @@ const List = styled.ul`
     text-align: center;
     height: 4.8rem;
     line-height: 4.8rem;
+    a {
+      display: block;
+      height: 100%;
+    }
   }
   li:hover {
     font-weight: bold;
@@ -134,10 +143,11 @@ const List = styled.ul`
 
   &.active {
     opacity: 1;
+    display: block;
   }
 
   @media (${(props) => props.theme.size.mobile}) {
-    width: 12rem;
+    width: 16rem;
     right: 1.6rem;
     li {
       font-size: 1.4rem;
@@ -149,6 +159,8 @@ const List = styled.ul`
 export default function AboutBottom({ children }: { children: ReactNode }) {
   const [moreOpen, setMoreOpen] = useState(false);
   const clickRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery('(max-width: 1023px)');
+
   const toggleSelect = () => {
     setMoreOpen(!moreOpen);
   };
@@ -184,9 +196,24 @@ export default function AboutBottom({ children }: { children: ReactNode }) {
           <p>더보기</p>
         </More>
         <List className={`${moreOpen ? 'active' : ''}`}>
+          {isMobile && (
+            <>
+              <li>
+                <Link to='/'>home🏠</Link>
+              </li>
+              <li>
+                <Link to='/about'>about😊</Link>
+              </li>
+              <li>
+                <Link to='/project'>project👩‍💻️</Link>
+              </li>
+              <li>
+                <Link to='/contact'>contact📞</Link>
+              </li>
+            </>
+          )}
           <li>이력서</li>
-          <li>자기소개서</li>
-          <li>경력기술서</li>
+          <li>포트폴리오</li>
         </List>
         <div className='like_wrap'>{children}</div>
       </Bottom>

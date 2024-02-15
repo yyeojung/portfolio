@@ -89,7 +89,7 @@ export default function TabAbout() {
         </div>
         <LinkWrap>
           <LinkBtn title='이력서 바로가기' />
-          <LinkBtn title='자기소개서 바로가기' />
+          <LinkBtn title='포트폴리오 바로가기' />
         </LinkWrap>
       </AboutWrap>
     </>

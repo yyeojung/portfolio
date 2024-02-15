@@ -16,6 +16,10 @@ const SideNav = styled.nav`
   gap: 2.8rem;
   flex-direction: column;
   padding-top: 4rem;
+
+  @media (${(props) => props.theme.size.mobile}) {
+    display: none;
+  }
 `;
 export default function Nav({ currentPage }: { currentPage: string }) {
   return (
