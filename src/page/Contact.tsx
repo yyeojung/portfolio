@@ -5,9 +5,12 @@ import { Link } from 'react-router-dom';
 import propfileImg from '../image/propfileImg.jpg';
 import iconDm from '../image/icon/icon_dm.png';
 import iconDelete from '../image/icon/icon_delete.png';
+import { useMediaQuery } from '@react-hook/media-query';
+import HamburgerMenu from 'components/HamburgerMenu';
 
 const Wrap = styled.div`
   position: relative;
+  overflow-y: hidden;
 `;
 const Contents = styled.div`
   width: calc(100% - 24rem);
@@ -15,6 +18,11 @@ const Contents = styled.div`
   min-height: 100vh;
   color: ${(props) => props.theme.mainColor};
   background: ${(props) => props.theme.mainBg};
+
+  @media (${(props) => props.theme.size.mobile}) {
+    width: 100%;
+    margin-left: 0;
+  }
 `;
 const Header = styled.div`
   height: 10rem;
@@ -22,6 +30,10 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   padding: 0 4rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  background: ${(props) => props.theme.mainBg};
 
   img {
     width: 6rem;
@@ -37,18 +49,46 @@ const Header = styled.div`
       font-size: 1.6rem;
     }
   }
+
+  @media (${(props) => props.theme.size.mobile}) {
+    height: 8rem;
+    padding: 0 2rem;
+
+    .ham_menu {
+      position: absolute;
+      right: 2rem;
+
+      .menu_list {
+        right: 0;
+        top: 4rem;
+      }
+    }
+  }
 `;
 const MessageArea = styled.div`
-  max-height: 70rem;
+  position: absolute;
+  top: 10rem;
+  width: calc(100% - 24rem);
+  max-height: calc(100vh - 22rem);
   overflow-y: auto;
+
+  @media (${(props) => props.theme.size.mobile}) {
+    width: 100%;
+    max-height: calc(100vh - 18rem);
+  }
 `;
 const DMessage = styled.div`
-  padding: 6rem 8rem;
+  padding: 0rem 8rem;
 
   p {
     color: ${(props) => props.theme.contact.dmAlert};
     font-size: 1.4rem;
     text-align: center;
+    margin-top: 2rem;
+  }
+
+  @media (${(props) => props.theme.size.mobile}) {
+    padding: 0rem 1.6rem;
   }
 `;
 const Chat = styled.ul`
@@ -167,12 +207,32 @@ const SendDm = styled.div`
       background: url(${iconDm}) center center/ 100% no-repeat;
     }
   }
+
+  @media (${(props) => props.theme.size.mobile}) {
+    left: 0rem;
+    height: 8rem;
+
+    input {
+      width: calc(100% - 8rem);
+      height: 6rem;
+    }
+    button.send {
+      right: 5rem;
+      height: 4rem;
+      width: 8rem;
+      i {
+        width: 2.8rem;
+        height: 2.8rem;
+      }
+    }
+  }
 `;
 export default function Contact() {
   const [dm, setDm] = useState('');
   const [showDm, setShowDm] = useState(false);
   const [messages, setMessages] = useState<SaveDmProps[]>([]);
   const dmListRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery('(max-width: 1023px)');
 
   interface SaveDmProps {
     message: string;
@@ -183,7 +243,7 @@ export default function Contact() {
     setMessages(storedMessages);
     setShowDm(storedMessages.length > 0);
     scrollDown();
-  }, [showDm]);
+  }, []);
 
   // 스크롤 하단으로
   const scrollDown = () => {
@@ -196,12 +256,14 @@ export default function Contact() {
     if (dm.trim() === '') {
       return;
     }
-    messages.push({ message: dm });
 
-    localStorage.setItem('message', JSON.stringify(messages));
+    const newMessages = { message: dm };
+    const updatedMessages = [...messages, newMessages];
+    setMessages(updatedMessages);
+
+    localStorage.setItem('message', JSON.stringify(updatedMessages));
     setDm('');
     setShowDm(true);
-    scrollDown();
   };
 
   // 메세지 보내기 엔터
@@ -216,6 +278,12 @@ export default function Contact() {
     localStorage.removeItem('message');
     setShowDm(false);
   };
+
+  // 스크롤 하단 이동
+  useEffect(() => {
+    scrollDown();
+  }, [messages]);
+
   return (
     <>
       <Wrap>
@@ -227,6 +295,7 @@ export default function Contact() {
               <strong>yeojung</strong>
               <p>발전하는 퍼블리셔 홍여정입니다!</p>
             </div>
+            {isMobile && <HamburgerMenu />}
           </Header>
           <MessageArea ref={dmListRef}>
             <DMessage>

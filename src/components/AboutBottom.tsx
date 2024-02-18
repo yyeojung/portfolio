@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import like1 from '../image/like1.jpg';
 import like2 from '../image/like2.jpg';
 import like3 from '../image/like3.jpg';
-import { ListStyle } from './Header';
+import { ListStyle } from './HamburgerMenu';
 import { useMediaQuery } from '@react-hook/media-query';
 import { Link } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ const Bottom = styled.div`
   height: 10rem;
   width: calc(100% - 24rem);
   background: #000;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   bottom: 0;
   right: 0;
@@ -158,7 +158,7 @@ const List = styled.ul`
 `;
 export default function AboutBottom({ children }: { children: ReactNode }) {
   const [moreOpen, setMoreOpen] = useState(false);
-  const clickRef = useRef<HTMLDivElement>(null);
+  const clickRef = useRef<HTMLUListElement>(null);
   const isMobile = useMediaQuery('(max-width: 1023px)');
 
   const toggleSelect = () => {
@@ -179,7 +179,7 @@ export default function AboutBottom({ children }: { children: ReactNode }) {
   }, [clickRef]);
   return (
     <>
-      <Bottom ref={clickRef}>
+      <Bottom>
         <Like>
           <div className='img_box'>
             <img src={like1} alt='스토리를 좋아합니다.' />
@@ -195,7 +195,7 @@ export default function AboutBottom({ children }: { children: ReactNode }) {
           </button>
           <p>더보기</p>
         </More>
-        <List className={`${moreOpen ? 'active' : ''}`}>
+        <List className={`${moreOpen ? 'active' : ''}`} ref={clickRef}>
           {isMobile && (
             <>
               <li>

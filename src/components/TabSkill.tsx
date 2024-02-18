@@ -15,19 +15,34 @@ const SkillWrap = styled.div`
   @media (${(props) => props.theme.size.mobile}) {
     width: 100%;
     margin-left: 0;
+    padding: 0 2rem;
   }
 `;
 const Contents = styled.div`
-  width: 100%;
+  position: absolute;
+  width: calc(100% - 12rem);
   z-index: 1;
-  margin-top: 12rem;
+  top: 14rem;
+  overflow-y: auto;
   display: flex;
   justify-content: space-around;
+  max-height: calc(100vh - 26rem);
+
+  @media (${(props) => props.theme.size.mobile}) {
+    width: calc(100% - 2rem);
+    max-height: calc(100vh - 24rem);
+    top: 12rem;
+    justify-content: normal;
+    flex-wrap: wrap;
+    .link_wrap {
+      top: 0;
+    }
+  }
 
   .link_wrap {
     position: absolute;
-    bottom: 20rem;
-    right: 8%;
+    bottom: 4rem;
+    right: 0.8rem;
   }
 
   .left {

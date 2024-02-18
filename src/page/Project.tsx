@@ -1,3 +1,5 @@
+import { useMediaQuery } from '@react-hook/media-query';
+import HamburgerMenu from 'components/HamburgerMenu';
 import Nav from 'components/Nav';
 import Post from 'components/Post';
 import React from 'react';
@@ -11,14 +13,36 @@ const Contents = styled.div`
   min-height: 100vh;
   color: ${(props) => props.theme.mainColor};
   background: ${(props) => props.theme.mainBg};
+
+  @media (${(props) => props.theme.size.mobile}) {
+    width: 100%;
+    margin-left: 0;
+  }
 `;
 const Header = styled.div`
   height: 8rem;
+  width: calc(100% - 24rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  background: ${(props) => props.theme.mainBg};
   border-bottom: 0.1rem solid ${(props) => props.theme.storyIcon.storyBorder};
+
+  @media (${(props) => props.theme.size.mobile}) {
+    width: 100%;
+
+    .ham_menu {
+      position: absolute;
+      left: 2rem;
+
+      .menu_list {
+        right: auto;
+        top: 4rem;
+      }
+    }
+  }
 
   strong {
     font-size: 2.8rem;
@@ -28,7 +52,7 @@ const Header = styled.div`
   }
 `;
 const PostWrap = styled.div`
-  padding: 4rem 6rem;
+  padding: 12rem 6rem 4rem;
   display: flex;
   flex-wrap: wrap;
   gap: 4rem;
@@ -38,6 +62,7 @@ const PostWrap = styled.div`
   }
 
   @media (${(props) => props.theme.size.mobile}) {
+    padding: 12rem 1.6rem 4rem;
     .post {
       width: calc(50% - 2rem);
     }
@@ -75,12 +100,15 @@ const DescArea = styled.div`
   }
 `;
 export default function Project() {
+  const isMobile = useMediaQuery('(max-width: 1023px)');
+
   return (
     <>
       <Wrap>
         <Nav currentPage='project'></Nav>
         <Contents>
           <Header>
+            {isMobile && <HamburgerMenu />}
             <strong>yeojung</strong>
             <p>게시물</p>
           </Header>

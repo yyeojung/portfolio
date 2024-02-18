@@ -1,53 +1,39 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './page/Home';
 import About from './page/About';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme, size } from './style/theme';
 import Project from 'page/Project';
 import Contact from 'page/Contact';
-// import { useSelector } from 'react-redux';
-// import { RootState } from 'store/store';
-
-// !!!!삭제하기
-const Relative = styled.div`
-  position: absolute;
-  right: 0;
-  z-index: 100;
-  & a {
-    color: red;
-  }
-`;
-const Button = styled.button`
-  border: 1px solid red;
-  background: #fff;
-`;
+import { useSelector } from 'react-redux';
+import { RootState } from 'store/store';
 
 function App() {
-  // const isLightTheme = useSelector(
-  //   (state: RootState) => state.thememode.isLightTheme
-  // );
+  const isLightTheme = useSelector(
+    (state: RootState) => state.thememode.isLightTheme
+  );
   // !!!! 테마 삭제
-  const [theme, setTheme] = useState(true);
+  // const [theme, setTheme] = useState(true);
 
-  const lightMode = () => {
-    setTheme(true);
-  };
-  const darkMode = () => {
-    setTheme(false);
-  };
+  // const lightMode = () => {
+  //   setTheme(true);
+  // };
+  // const darkMode = () => {
+  //   setTheme(false);
+  // };
   const themeAndMobile = {
-    ...(theme ? lightTheme : darkTheme),
+    ...(isLightTheme ? lightTheme : darkTheme),
     size
   };
 
   return (
     <ThemeProvider theme={themeAndMobile}>
-      <Relative>
+      {/* <Relative>
         <Button onClick={darkMode}>dark</Button>
         <Button onClick={lightMode}>light</Button>
-      </Relative>
+      </Relative> */}
       <div className='App'>
         <Router basename={process.env.PUBLIC_URL}>
           <Routes>
