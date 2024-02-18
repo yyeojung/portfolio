@@ -213,7 +213,7 @@ export default function AboutBottom({ children }: { children: ReactNode }) {
               </li>
             </>
           )}
-          <li>
+          {/* <li>
             <a
               href='https://distinct-feels-7f8.notion.site/ccc7154587a543b298324a8ad7d3ebe4?pvs=4'
               target='_blank'
@@ -221,7 +221,7 @@ export default function AboutBottom({ children }: { children: ReactNode }) {
             >
               이력서
             </a>
-          </li>
+          </li> */}
           <li>
             <a
               href='https://distinct-feels-7f8.notion.site/1b9f7bfe6bfd4e27846b77f275be8ba6?pvs=4'

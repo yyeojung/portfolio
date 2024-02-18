@@ -66,9 +66,6 @@ const LinkWrap = styled.div`
   @media (${(props) => props.theme.size.mobile}) {
     display: none;
   }
-  button:last-child {
-    margin-top: 4rem;
-  }
 `;
 export default function TabAbout() {
   return (
@@ -94,10 +91,10 @@ export default function TabAbout() {
           </p>
         </div>
         <LinkWrap>
-          <LinkBtn
+          {/* <LinkBtn
             title='이력서 바로가기'
             linkUrl='https://distinct-feels-7f8.notion.site/ccc7154587a543b298324a8ad7d3ebe4'
-          />
+          /> */}
           <LinkBtn
             title='포트폴리오 바로가기'
             linkUrl='https://distinct-feels-7f8.notion.site/1b9f7bfe6bfd4e27846b77f275be8ba6?pvs=4'

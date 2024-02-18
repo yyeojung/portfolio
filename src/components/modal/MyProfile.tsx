@@ -91,11 +91,11 @@ export default function MyProfile({ onClick }: { onClick: () => void }) {
             <button>
               <i className='resume'></i>
               <a
-                href='https://distinct-feels-7f8.notion.site/ccc7154587a543b298324a8ad7d3ebe4?pvs=4'
+                href='https://github.com/yyeojung'
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                이력서 바로가기
+                깃허브 바로가기
               </a>
             </button>
             <button>
