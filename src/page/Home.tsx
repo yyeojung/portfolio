@@ -17,7 +17,6 @@ import Setting from 'components/modal/Setting';
 import Message from 'components/modal/Message';
 
 const HomeWrap = styled.div`
-  background: ${(props) => props.theme.mainBg};
   min-height: 100vh;
 
   & .guide {
@@ -70,8 +69,19 @@ const StoryWrap = styled.div`
   margin-top: 4rem;
   display: flex;
   gap: 6rem;
+
   @media (${(props) => props.theme.size.mobile}) {
     gap: 1rem;
+    overflow-x: auto;
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: transparent;
+    }
   }
 `;
 export default function Home() {
@@ -81,12 +91,10 @@ export default function Home() {
 
   const handleOpenModal = (name: string) => {
     dispatch(openModal(name));
-    document.body.style.overflow = 'hidden';
   };
 
   const handleCloseModal = () => {
     dispatch(closeModal());
-    document.body.style.overflow = '';
   };
 
   const renderModal = () => {
@@ -171,7 +179,8 @@ export default function Home() {
           </StoryWrap>
         </div>
 
-        {isOpen && <div>{renderModal()}</div>}
+        {/* 메세지 모달창 */}
+        {isOpen && <>{renderModal()}</>}
       </HomeWrap>
     </>
   );

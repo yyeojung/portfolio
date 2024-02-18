@@ -37,10 +37,12 @@ export default function Setting({ onClick }: { onClick: () => void }) {
 
   const handleLightMode = () => {
     dispatch(setLightTheme());
+    document.body.setAttribute('data-theme', 'light');
   };
 
   const handleDarkMode = () => {
     dispatch(setDarkTheme());
+    document.body.setAttribute('data-theme', 'dark');
   };
   return (
     <>

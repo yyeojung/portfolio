@@ -34,8 +34,9 @@ const Contents = styled.div`
     top: 12rem;
     justify-content: normal;
     flex-wrap: wrap;
+
     .link_wrap {
-      top: 0;
+      display: none;
     }
   }
 
@@ -79,7 +80,10 @@ export default function TabSkill() {
       <SkillWrap>
         <Contents>
           <div className='link_wrap'>
-            <LinkBtn title='경력기술서 바로가기'></LinkBtn>
+            <LinkBtn
+              title='경력기술서 바로가기'
+              linkUrl='https://distinct-feels-7f8.notion.site/9129a97ec14f4b8292f080b57299c2a9'
+            ></LinkBtn>
           </div>
           <div className='left'>
             <Box>
@@ -116,7 +120,8 @@ export default function TabSkill() {
                   데이터 전달을 위한 props의 개념을 이해하고 활용할 수 있습니다.
                 </p>
                 <p>
-                  state를 효과적으로 관리하기 위해 Redux로 전역 상태관리를
+                  state를 효과적으로 관리하기 위해 Redux Toolkit으로 전역
+                  상태관리를
                   <br />
                   경험해보았습니다.
                 </p>
@@ -127,8 +132,13 @@ export default function TabSkill() {
             <Box>
               <Tag>공부 중</Tag>
               <div className='text_wrap'>
-                <strong>공부하고 있는거..</strong>
-                <p>뭐라도 시작해서 여기에 얼른 적기</p>
+                <strong>Next.js</strong>
+                <p>
+                  서버사이드 렌더링과 클라이언트 사이드 렌더링의 차이를 이해하고
+                  <br />
+                  서버에 부담을 줄이고 성능을 향상시키는 방법에 대해 학습
+                  중입니다.
+                </p>
               </div>
             </Box>
             <Box>

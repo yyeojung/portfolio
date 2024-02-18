@@ -30,6 +30,7 @@ const AboutWrap = styled.div`
       padding: 0 4rem;
     }
     @media (${(props) => props.theme.size.mobile}) {
+      top: 18rem;
       padding: 0 1.6rem;
     }
   }
@@ -62,6 +63,9 @@ const LinkWrap = styled.div`
   @media (max-width: 1400px) {
     right: 8%;
   }
+  @media (${(props) => props.theme.size.mobile}) {
+    display: none;
+  }
   button:last-child {
     margin-top: 4rem;
   }
@@ -79,17 +83,25 @@ export default function TabAbout() {
             해결하는 능력을 갖추고 있습니다.
           </p>
           <p className='desc'>
-            적극적인 의사소통으로 팀원들과의 문제 없는 협업이 가능하며 지속적인
-            학습으로 문제 해결을 할 수 있도록 노력합니다.
+            저의 장점으로는 적극적인 의사소통으로 팀원들과의 문제 없는 협업이
+            가능하며 지속적인 학습으로 문제 해결을 할 수 있도록 노력하는
+            것입니다.
           </p>
           <p className='desc'>
-            함께 일하는 동료들과의 긍정적인 관계를 유지하며, 항상 최선을 다해
-            결과를 이끌어내고자 합니다!
+            코딩을 하는 것은 저에게 즐거움과 성취감을 주어 꾸준한 학습의 동기가
+            되어줍니다. 배움을 계속하고 응용함으로써 항상 최선의 결과를 위해
+            노력하겠습니다!
           </p>
         </div>
         <LinkWrap>
-          <LinkBtn title='이력서 바로가기' />
-          <LinkBtn title='포트폴리오 바로가기' />
+          <LinkBtn
+            title='이력서 바로가기'
+            linkUrl='https://distinct-feels-7f8.notion.site/ccc7154587a543b298324a8ad7d3ebe4'
+          />
+          <LinkBtn
+            title='포트폴리오 바로가기'
+            linkUrl='https://distinct-feels-7f8.notion.site/1b9f7bfe6bfd4e27846b77f275be8ba6?pvs=4'
+          />
         </LinkWrap>
       </AboutWrap>
     </>

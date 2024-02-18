@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ClockBox = styled.div`
   display: flex;
 
-  & .clockWrap {
+  & .clock_wrap {
     width: 20rem;
     text-align: center;
     color: ${(props) => props.theme.mainColor};
@@ -25,6 +25,9 @@ const ClockBox = styled.div`
         font-size: 1.6rem;
       }
     }
+    @media (max-width: 767px) {
+      width: 8rem;
+    }
   }
 `;
 export default function Clock() {
@@ -44,15 +47,15 @@ export default function Clock() {
   return (
     <>
       <ClockBox>
-        <div className='clockWrap'>
+        <div className='clock_wrap'>
           <h2>{hours}</h2>
           <p>always</p>
         </div>
-        <div className='clockWrap'>
+        <div className='clock_wrap'>
           <h2>{minutes}</h2>
           <p>moving</p>
         </div>
-        <div className='clockWrap'>
+        <div className='clock_wrap'>
           <h2>{seconds}</h2>
           <p>forward</p>
         </div>

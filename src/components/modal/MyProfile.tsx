@@ -36,6 +36,7 @@ const Contents = styled.div`
       position: relative;
       font-size: 1.6rem;
       height: 2.8rem;
+
       i {
         margin-right: 1rem;
         display: block;
@@ -43,9 +44,14 @@ const Contents = styled.div`
         height: 1.6rem;
         background: url(${(props) => props.theme.modal.iconAbout}) center
           center/ 100% no-repeat;
+
+        &.resume {
+          background-image: url(${(props) => props.theme.modal.iconProfile});
+        }
       }
-      i.resume {
-        background-image: url(${(props) => props.theme.modal.iconProfile});
+      a {
+        width: 100%;
+        text-align: left;
       }
     }
     button:hover {
@@ -84,11 +90,23 @@ export default function MyProfile({ onClick }: { onClick: () => void }) {
           <div className='btn_wrap'>
             <button>
               <i className='resume'></i>
-              이력서 바로가기
+              <a
+                href='https://distinct-feels-7f8.notion.site/ccc7154587a543b298324a8ad7d3ebe4?pvs=4'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                이력서 바로가기
+              </a>
             </button>
             <button>
               <i></i>
-              자기소개서 바로가기
+              <a
+                href='https://distinct-feels-7f8.notion.site/1b9f7bfe6bfd4e27846b77f275be8ba6?pvs=4'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                포트폴리오 바로가기
+              </a>
             </button>
           </div>
         </Contents>

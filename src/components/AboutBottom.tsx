@@ -29,6 +29,7 @@ const Bottom = styled.div`
     height: 30rem;
   }
   @media (${(props) => props.theme.size.mobile}) {
+    height: 8rem;
     width: 100%;
     padding: 0 1.6rem;
     .like_wrap {
@@ -212,8 +213,33 @@ export default function AboutBottom({ children }: { children: ReactNode }) {
               </li>
             </>
           )}
-          <li>이력서</li>
-          <li>포트폴리오</li>
+          <li>
+            <a
+              href='https://distinct-feels-7f8.notion.site/ccc7154587a543b298324a8ad7d3ebe4?pvs=4'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              이력서
+            </a>
+          </li>
+          <li>
+            <a
+              href='https://distinct-feels-7f8.notion.site/1b9f7bfe6bfd4e27846b77f275be8ba6?pvs=4'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              포트폴리오
+            </a>
+          </li>
+          <li>
+            <a
+              href='https://distinct-feels-7f8.notion.site/9129a97ec14f4b8292f080b57299c2a9'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              경력기술서
+            </a>
+          </li>
         </List>
         <div className='like_wrap'>{children}</div>
       </Bottom>

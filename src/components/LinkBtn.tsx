@@ -44,12 +44,25 @@ const Button = styled.button`
     }
   }
 `;
-export default function LinkBtn({ title }: { title: string }) {
+interface linkBtnProps {
+  title: string;
+  linkUrl?: string;
+}
+export default function LinkBtn({ title, linkUrl }: linkBtnProps) {
   return (
     <>
       <Button>
-        <i></i>
-        <span>{title}</span>
+        {linkUrl ? (
+          <a href={linkUrl} target='_blank' rel='noopener noreferrer'>
+            <i></i>
+            <span>{title}</span>
+          </a>
+        ) : (
+          <>
+            <i></i>
+            <span>{title}</span>
+          </>
+        )}
       </Button>
     </>
   );

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import HamburgerMenu, { ListStyle } from './HamburgerMenu';
 
@@ -23,6 +22,7 @@ const Headers = styled.header`
   }
   @media (${(props) => props.theme.size.mobile}) {
     height: 5.6rem;
+    padding: 0 2rem;
   }
 `;
 // 타이틀 스타일
@@ -101,31 +101,31 @@ export default function Header() {
           <button className='dropdown' onClick={toggleSelect}></button>
           <ul className='my_list'>
             <li>
-              <Link
-                to='https://github.com/yyeojung'
+              <a
+                href='https://github.com/yyeojung'
                 target='_blank'
                 rel='noopener noreferrer'
               >
                 yyeojung github
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to='https://distinct-feels-7f8.notion.site/f46b85ea455440619150112cacc8177a?pvs=4'
+              <a
+                href='https://distinct-feels-7f8.notion.site/1b9f7bfe6bfd4e27846b77f275be8ba6?pvs=4'
                 target='_blank'
                 rel='noopener noreferrer'
               >
                 notion
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to='https://hhyj0000.tistory.com/'
+              <a
+                href='https://hhyj0000.tistory.com/'
                 target='_blank'
                 rel='noopener noreferrer'
               >
                 blog
-              </Link>
+              </a>
             </li>
           </ul>
         </Title>

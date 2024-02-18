@@ -190,12 +190,21 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+/* css */
+:root {
+  --main-background: #fff;
+}
+[data-theme="dark"] {
+  --main-background: #02050E;
+}
+body {
+  background-color: var(--main-background);
+}
 
 .App {
   height: 100vh;
   min-height: 100vh;
 }
-
 /* 스크롤바 */
 ::-webkit-scrollbar {
   width: 10px;

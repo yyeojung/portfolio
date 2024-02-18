@@ -3,8 +3,13 @@ import HamburgerMenu from 'components/HamburgerMenu';
 import Nav from 'components/Nav';
 import Post from 'components/Post';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import highlearning from '../image/highlearning.png';
+import asum from '../image/asum.jpg';
+import tugboat from '../image/tugboat.png';
+import portfolio from '../image/portfolio.png';
+import memo from '../image/memo.png';
+import travelPocket from '../image/travel_pocket.png';
 
 const Wrap = styled.div``;
 const Contents = styled.div`
@@ -27,8 +32,8 @@ const Header = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  background: ${(props) => props.theme.mainBg};
   border-bottom: 0.1rem solid ${(props) => props.theme.storyIcon.storyBorder};
+  background: ${(props) => props.theme.mainBg};
 
   @media (${(props) => props.theme.size.mobile}) {
     width: 100%;
@@ -113,7 +118,10 @@ export default function Project() {
             <p>게시물</p>
           </Header>
           <PostWrap>
-            <Post>
+            <Post
+              imgSrc={highlearning}
+              imgUrl='https://distinct-feels-7f8.notion.site/627afaf21bba42b0bbd7847b10e847dc'
+            >
               <DescArea>
                 <p>
                   <strong>하이러닝</strong>경기도 교육청 AI기반 교수 학습 플랫폼
@@ -122,12 +130,19 @@ export default function Project() {
                   #유지보수 #고도화 #html #css #javascript #chart.js #lottie.js
                   #swiper.js
                 </p>
-                <Link to='https://www.google.com'>
+                <a
+                  href='https://distinct-feels-7f8.notion.site/627afaf21bba42b0bbd7847b10e847dc'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <strong>프로젝트 기술서</strong>바로가기
-                </Link>
+                </a>
               </DescArea>
             </Post>
-            <Post>
+            <Post
+              imgSrc={asum}
+              imgUrl='https://distinct-feels-7f8.notion.site/ASUM-3faf40221fba4cd1880cad8d3f6d34d1'
+            >
               <DescArea>
                 <p>
                   <strong>ASUM</strong>skt 마케팅 플랫폼 백오피스
@@ -135,12 +150,19 @@ export default function Project() {
                 <p className='tag'>
                   #유지보수 #html #css #javascript #swiper.js
                 </p>
-                <Link to='https://www.google.com'>
+                <a
+                  href='https://distinct-feels-7f8.notion.site/ASUM-3faf40221fba4cd1880cad8d3f6d34d1'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <strong>프로젝트 기술서</strong>바로가기
-                </Link>
+                </a>
               </DescArea>
             </Post>
-            <Post>
+            <Post
+              imgSrc={tugboat}
+              imgUrl='https://distinct-feels-7f8.notion.site/33d69edb66774827bea8611f61d935d4'
+            >
               <DescArea>
                 <p>
                   <strong>Tugboat</strong>대교 사용자 맞춤형 학습 전략 서비스
@@ -148,12 +170,19 @@ export default function Project() {
                 <p className='tag'>
                   #신규 프로젝트 #html #css #javascript #swiper.js #chart.js
                 </p>
-                <Link to='https://www.google.com'>
+                <a
+                  href='https://distinct-feels-7f8.notion.site/33d69edb66774827bea8611f61d935d4'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <strong>프로젝트 기술서</strong>바로가기
-                </Link>
+                </a>
               </DescArea>
             </Post>
-            <Post>
+            <Post
+              imgSrc={travelPocket}
+              imgUrl='https://yyeojung.github.io/react_travel/'
+            >
               <DescArea>
                 <p>
                   <strong>Travel Pocket</strong>여행 가계부 토이프로젝트
@@ -161,18 +190,30 @@ export default function Project() {
                 <p className='tag'>
                   #토이 프로젝트 #React.js #styled-components #uuid #localstrage
                 </p>
-                <Link to='https://www.google.com'>
+                <a
+                  href='https://distinct-feels-7f8.notion.site/b124368120ca4dacb72f61b7e56129bb'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <strong>회고록</strong>바로가기
-                </Link>
-                <Link to='https://www.google.com'>
+                </a>
+                <a
+                  href='https://github.com/yyeojung/react_travel'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <strong>Github</strong>바로가기
-                </Link>
-                <Link to='https://www.google.com'>
+                </a>
+                <a
+                  href='https://yyeojung.github.io/react_travel/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <strong>Demo</strong>바로가기
-                </Link>
+                </a>
               </DescArea>
             </Post>
-            <Post>
+            <Post imgSrc={memo} imgUrl='https://yyeojung.github.io/react_memo/'>
               <DescArea>
                 <p>
                   <strong>I’m memo</strong>간단한 메모 토이프로젝트
@@ -180,18 +221,30 @@ export default function Project() {
                 <p className='tag'>
                   #토이 프로젝트 #React.js #styled-components #uuid #localstrage
                 </p>
-                <Link to='https://www.google.com'>
+                <a
+                  href='https://distinct-feels-7f8.notion.site/b2ee71f3e1324a089fc07ffa569f57ee'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <strong>회고록</strong>바로가기
-                </Link>
-                <Link to='https://www.google.com'>
+                </a>
+                <a
+                  href='https://github.com/yyeojung/react_memo'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <strong>Github</strong>바로가기
-                </Link>
-                <Link to='https://www.google.com'>
+                </a>
+                <a
+                  href='https://yyeojung.github.io/react_memo/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <strong>Demo</strong>바로가기
-                </Link>
+                </a>
               </DescArea>
             </Post>
-            <Post>
+            <Post imgSrc={portfolio}>
               <DescArea>
                 <p>
                   <strong>Portfolio</strong>2024 포트폴리오 사이트
@@ -200,15 +253,20 @@ export default function Project() {
                   #portfolio #React.js #styled-components #typescript #Redux
                   #Emailjs #lottie
                 </p>
-                <Link to='https://www.google.com'>
+                <a
+                  href='https://distinct-feels-7f8.notion.site/2024-portfolio-f54b70757f1a48b09de544a29d63862f'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <strong>회고록</strong>바로가기
-                </Link>
-                <Link to='https://www.google.com'>
+                </a>
+                <a
+                  href='https://github.com/yyeojung/portfolio'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <strong>Github</strong>바로가기
-                </Link>
-                <Link to='https://www.google.com'>
-                  <strong>Demo</strong>바로가기
-                </Link>
+                </a>
               </DescArea>
             </Post>
           </PostWrap>
