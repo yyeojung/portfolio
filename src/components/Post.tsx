@@ -25,8 +25,13 @@ const Wrap = styled.div`
     border: 0.1rem solid ${(props) => props.theme.storyIcon.storyBorder};
 
     img {
+      width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    img:not(.none):hover {
+      transform: scale(1.1);
     }
   }
 `;
@@ -58,12 +63,14 @@ const Url = styled.a`
 interface PostProps {
   imgUrl?: string;
   imgSrc?: string;
+  className?: string;
 }
 
 export default function Post({
   children,
   imgUrl,
-  imgSrc
+  imgSrc,
+  className
 }: { children: ReactNode } & PostProps) {
   const [isLike, setIsLike] = useState(false);
 
@@ -79,7 +86,7 @@ export default function Post({
           target='_blank'
           rel='noopener noreferrer'
         >
-          <img src={imgSrc} alt='프로젝트 이미지' />
+          <img className={className} src={imgSrc} alt='프로젝트 이미지' />
         </a>
         <IconArea>
           <Like className={isLike ? 'active' : ''} onClick={clickLike}></Like>

@@ -244,7 +244,7 @@ export default function Project() {
                 </a>
               </DescArea>
             </Post>
-            <Post imgSrc={portfolio}>
+            <Post imgSrc={portfolio} className='none'>
               <DescArea>
                 <p>
                   <strong>Portfolio</strong>2024 포트폴리오 사이트
