@@ -1,6 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+import {
+  animateLine1,
+  animateLine2,
+  animateLine3,
+  returnLine1,
+  returnLine2,
+  returnLine3
+} from './animation';
 
 // 리스트 스타일
 export const ListStyle = css`
@@ -62,6 +70,39 @@ const Menu = styled.div`
     }
   }
 
+  & .menu.animation {
+    .line_1 {
+      animation: ${animateLine1} 0.5s ease-in-out;
+      transform: translateY(16px) rotate(45deg);
+    }
+    .line_2 {
+      animation: ${animateLine2} 0.5s ease-in-out;
+      opacity: 0;
+    }
+    .line_3 {
+      animation: ${animateLine3} 0.5s ease-in-out;
+      transform: translateY(-16px) rotate(135deg);
+    }
+  }
+
+  & .menu.return {
+    .line_1 {
+      animation: ${returnLine1} 0.5s ease-in-out;
+    }
+    .line_2 {
+      animation: ${returnLine2} 0.5s ease-in-out;
+    }
+    .line_3 {
+      animation: ${returnLine3} 0.5s ease-in-out;
+    }
+  }
+
+  & .menu.no_animation {
+    span {
+      animation: none !important;
+    }
+  }
+
   & .menu_list {
     ${ListStyle};
     width: 22rem;
@@ -99,6 +140,7 @@ const Menu = styled.div`
 
 export default function HamburgerMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [animate, setAnimate] = useState(true);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const handleOutsideClick = (e: MouseEvent) => {
@@ -116,14 +158,18 @@ export default function HamburgerMenu() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+    setAnimate(false);
   };
   return (
     <>
       <Menu className={`ham_menu ${menuOpen ? 'active' : ''}`} ref={menuRef}>
-        <button className='menu' onClick={toggleMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
+        <button
+          className={`menu ${animate ? 'no_animation' : ''} ${menuOpen ? 'animation' : 'return'}`}
+          onClick={toggleMenu}
+        >
+          <span className='line_1'></span>
+          <span className='line_2'></span>
+          <span className='line_3'></span>
         </button>
         <ul className='menu_list'>
           <li>

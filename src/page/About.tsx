@@ -4,17 +4,10 @@ import AboutBottom from 'components/AboutBottom';
 import LikeAnimation from 'components/LikeAnimation';
 import TabAbout from 'components/TabAbout';
 import TabSkill from 'components/TabSkill';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import propfileImg from '../image/propfileImg.jpg';
+import { fadeIn } from 'components/animation';
 
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
 const Wrap = styled.div`
   position: relative;
 `;
