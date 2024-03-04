@@ -5,6 +5,10 @@ import {
   animateLine1,
   animateLine2,
   animateLine3,
+  mobileAnimateLine1,
+  mobileAnimateLine3,
+  mobileReturnLine1,
+  mobileReturnLine3,
   returnLine1,
   returnLine2,
   returnLine3
@@ -83,6 +87,16 @@ const Menu = styled.div`
       animation: ${animateLine3} 0.5s ease-in-out;
       transform: translateY(-16px) rotate(135deg);
     }
+    @media (${(props) => props.theme.size.mobile}) {
+      .line_1 {
+        animation: ${mobileAnimateLine1} 0.5s ease-in-out;
+        transform: translateY(10px) rotate(45deg);
+      }
+      .line_3 {
+        animation: ${mobileAnimateLine3} 0.5s ease-in-out;
+        transform: translateY(-10px) rotate(135deg);
+      }
+    }
   }
 
   & .menu.return {
@@ -94,6 +108,14 @@ const Menu = styled.div`
     }
     .line_3 {
       animation: ${returnLine3} 0.5s ease-in-out;
+    }
+    @media (${(props) => props.theme.size.mobile}) {
+      .line_1 {
+        animation: ${mobileReturnLine1} 0.5s ease-in-out;
+      }
+      .line_3 {
+        animation: ${mobileReturnLine3} 0.5s ease-in-out;
+      }
     }
   }
 

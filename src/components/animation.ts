@@ -75,3 +75,48 @@ export const returnLine3 = keyframes`
     transform: translateY(0) rotate(0);
   }
 `;
+
+export const mobileAnimateLine1 = keyframes` 
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(10px) rotate(0);
+  }
+  100% {
+    transform: translateY(10px) rotate(45deg);
+  }
+`;
+export const mobileReturnLine1 = keyframes` 
+  0% {
+    transform: translateY(10px) rotate(45deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(0);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+`;
+export const mobileAnimateLine3 = keyframes` 
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0);
+  }
+  100% {
+    transform: translateY(-10px) rotate(135deg);
+  }
+`;
+export const mobileReturnLine3 = keyframes` 
+  0% {
+    transform: translateY(-10px) rotate(135deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+`;
