@@ -108,6 +108,10 @@ const More = styled.div`
       font-size: 1.2rem;
     }
   }
+
+  &.active ul {
+    transform: scaleY(1);
+  }
 `;
 
 const List = styled.ul`
@@ -115,13 +119,13 @@ const List = styled.ul`
   color: ${(props) => props.theme.mainColor};
   width: 18rem;
   right: 4rem;
-  display: none;
   top: auto;
   bottom: calc(100% + 2rem);
   height: auto;
   border: 0.1rem solid ${(props) => props.theme.storyIcon.storyBorder};
   padding: 2rem;
   z-index: 2;
+  transform-origin: bottom;
 
   li {
     font-size: 1.6rem;
@@ -142,11 +146,6 @@ const List = styled.ul`
     border-top: 0.1rem solid ${(props) => props.theme.storyIcon.storyBorder};
   }
 
-  &.active {
-    opacity: 1;
-    display: block;
-  }
-
   @media (${(props) => props.theme.size.mobile}) {
     width: 16rem;
     right: 1.6rem;
@@ -159,7 +158,7 @@ const List = styled.ul`
 `;
 export default function AboutBottom({ children }: { children: ReactNode }) {
   const [moreOpen, setMoreOpen] = useState(false);
-  const clickRef = useRef<HTMLUListElement>(null);
+  const clickRef = useRef<HTMLDivElement>(null);
   const isMobile = useMediaQuery('(max-width: 1023px)');
 
   const toggleSelect = () => {
@@ -188,59 +187,59 @@ export default function AboutBottom({ children }: { children: ReactNode }) {
             <img src={like2} alt='스토리를 좋아합니다.' />
           </div>
         </Like>
-        <More>
+        <More className={`${moreOpen ? 'active' : ''}`} ref={clickRef}>
           <button className='more_btn' onClick={toggleSelect}>
             <span></span>
             <span></span>
             <span></span>
           </button>
           <p>더보기</p>
+          <List>
+            {isMobile && (
+              <>
+                <li>
+                  <Link to='/'>home🏠</Link>
+                </li>
+                <li>
+                  <Link to='/about'>about😊</Link>
+                </li>
+                <li>
+                  <Link to='/project'>project👩‍💻️</Link>
+                </li>
+                <li>
+                  <Link to='/contact'>contact📞</Link>
+                </li>
+              </>
+            )}
+            {/* <li>
+            <a
+            href='https://distinct-feels-7f8.notion.site/ccc7154587a543b298324a8ad7d3ebe4?pvs=4'
+            target='_blank'
+            rel='noopener noreferrer'
+            >
+            이력서
+            </a>
+        </li> */}
+            <li>
+              <a
+                href='https://distinct-feels-7f8.notion.site/1b9f7bfe6bfd4e27846b77f275be8ba6?pvs=4'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                포트폴리오
+              </a>
+            </li>
+            <li>
+              <a
+                href='https://distinct-feels-7f8.notion.site/9129a97ec14f4b8292f080b57299c2a9'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                경력기술서
+              </a>
+            </li>
+          </List>
         </More>
-        <List className={`${moreOpen ? 'active' : ''}`} ref={clickRef}>
-          {isMobile && (
-            <>
-              <li>
-                <Link to='/'>home🏠</Link>
-              </li>
-              <li>
-                <Link to='/about'>about😊</Link>
-              </li>
-              <li>
-                <Link to='/project'>project👩‍💻️</Link>
-              </li>
-              <li>
-                <Link to='/contact'>contact📞</Link>
-              </li>
-            </>
-          )}
-          {/* <li>
-            <a
-              href='https://distinct-feels-7f8.notion.site/ccc7154587a543b298324a8ad7d3ebe4?pvs=4'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              이력서
-            </a>
-          </li> */}
-          <li>
-            <a
-              href='https://distinct-feels-7f8.notion.site/1b9f7bfe6bfd4e27846b77f275be8ba6?pvs=4'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              포트폴리오
-            </a>
-          </li>
-          <li>
-            <a
-              href='https://distinct-feels-7f8.notion.site/9129a97ec14f4b8292f080b57299c2a9'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              경력기술서
-            </a>
-          </li>
-        </List>
         <div className='like_wrap'>{children}</div>
       </Bottom>
     </>

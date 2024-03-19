@@ -62,8 +62,7 @@ const Title = styled.div`
       transform: rotate(180deg);
     }
     .my_list {
-      opacity: 1;
-      height: 18.4rem;
+      transform: scaleY(1);
       padding: 2rem 0rem;
       @media (${(props) => props.theme.size.mobile}) {
         height: 13.2rem;

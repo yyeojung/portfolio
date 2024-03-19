@@ -23,10 +23,9 @@ export const ListStyle = css`
   border: 0.1rem solid ${(props) => props.theme.dropdown.border};
   box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.25);
   border-radius: 2rem;
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  padding: 0rem;
+  transform: scaleY(0);
+  padding: 3rem 0rem;
+  transform-origin: top;
 
   & li {
     font-size: 2.8rem;
@@ -137,23 +136,13 @@ const Menu = styled.div`
     & li:hover {
       background: rgba(226, 53, 53, 0.19);
     }
-
-    @media (${(props) => props.theme.size.mobile}) {
-      width: 14rem;
-      & li {
-        height: 2.4rem;
-      }
-    }
   }
 
   &.active {
     .menu_list {
-      opacity: 1;
-      height: 26.6rem;
-      padding: 3rem 0rem;
+      transform: scaleY(1);
 
       @media (${(props) => props.theme.size.mobile}) {
-        height: 16.6rem;
         padding: 2rem 0rem;
       }
     }
