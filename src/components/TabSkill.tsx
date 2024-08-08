@@ -21,14 +21,19 @@ const SkillWrap = styled.div`
 const Contents = styled.div`
   position: absolute;
   width: calc(100% - 12rem);
+  padding-top: 9rem;
   z-index: 1;
-  top: 14rem;
   overflow-y: auto;
   display: flex;
   justify-content: space-around;
-  max-height: calc(100vh - 26rem);
+  max-height: calc(100vh - 16rem);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media (${(props) => props.theme.size.mobile}) {
+    padding-top: 0;
     width: calc(100% - 2rem);
     max-height: calc(100vh - 24rem);
     top: 12rem;
@@ -42,7 +47,7 @@ const Contents = styled.div`
 
   .link_wrap {
     position: absolute;
-    bottom: 4rem;
+    top: 6rem;
     right: 0.8rem;
   }
 
@@ -144,7 +149,13 @@ export default function TabSkill() {
             <Box>
               <Tag>교육 · 수료 </Tag>
               <div className='text_wrap'>
+                <strong>자료구조 알고리즘 핵심완성</strong>
+                <p>엘리스</p>
+                <p>2024.04.08 ~ 2024.05.17</p>
+              </div>
+              <div className='text_wrap'>
                 <strong>실무프로젝트 기반의 VUE JS</strong>
+                <p>대우직업능력개발원</p>
                 <p>2023.12.16 ~ 2023.12.17</p>
               </div>
               <div className='text_wrap'>

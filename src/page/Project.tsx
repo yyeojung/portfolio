@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import highlearning from '../image/highlearning.png';
 import asum from '../image/asum.jpg';
 import tugboat from '../image/tugboat.png';
-import portfolio from '../image/portfolio.png';
+import camping from '../image/camping.png';
 import memo from '../image/memo.png';
 import travelPocket from '../image/travel_pocket.png';
 
@@ -244,28 +244,35 @@ export default function Project() {
                 </a>
               </DescArea>
             </Post>
-            <Post imgSrc={portfolio} className='none'>
+            <Post imgSrc={camping} imgUrl='https://gocamping-umber.vercel.app/'>
               <DescArea>
                 <p>
-                  <strong>Portfolio</strong>2024 포트폴리오 사이트
+                  <strong>Dayily Camping</strong>캠핑장 조회 사이트
                 </p>
                 <p className='tag'>
-                  #portfolio #React.js #styled-components #typescript #Redux
-                  #Emailjs #lottie
+                  #토이 프로젝트 #React.js #Emotion #typescript #Context API
+                  #React-Slick #React-Select
                 </p>
                 <a
-                  href='https://distinct-feels-7f8.notion.site/2024-portfolio-f54b70757f1a48b09de544a29d63862f'
+                  href='https://distinct-feels-7f8.notion.site/bd8341f206ff4bb387c4df2fa3705d96?pvs=74'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
                   <strong>회고록</strong>바로가기
                 </a>
                 <a
-                  href='https://github.com/yyeojung/portfolio'
+                  href='https://github.com/yyeojung/camping'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
                   <strong>Github</strong>바로가기
+                </a>
+                <a
+                  href='https://gocamping-umber.vercel.app/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <strong>Demo</strong>바로가기
                 </a>
               </DescArea>
             </Post>
