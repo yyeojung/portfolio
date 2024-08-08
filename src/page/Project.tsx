@@ -216,7 +216,7 @@ export default function Project() {
             <Post imgSrc={memo} imgUrl='https://yyeojung.github.io/react_memo/'>
               <DescArea>
                 <p>
-                  <strong>I’m memo</strong>간단한 메모 토이프로젝트
+                  <strong>I’m memo</strong>메모장 토이프로젝트
                 </p>
                 <p className='tag'>
                   #토이 프로젝트 #React.js #styled-components #uuid #localstrage
