@@ -250,8 +250,8 @@ export default function Project() {
                   <strong>Dayily Camping</strong>캠핑장 조회 사이트
                 </p>
                 <p className='tag'>
-                  #토이 프로젝트 #React.js #Emotion #typescript #Context API
-                  #React-Slick #React-Select
+                  #토이 프로젝트 #공공데이터API #React.js #Emotion #typescript
+                  #Context API #React-Slick #React-Select
                 </p>
                 <a
                   href='https://distinct-feels-7f8.notion.site/bd8341f206ff4bb387c4df2fa3705d96?pvs=74'
